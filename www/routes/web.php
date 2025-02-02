@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\PageController;
+use App\Http\Middleware\Frontend;
+
+Route::middleware([Frontend::class])->group(
+    function () {
+        Route::get('/', [PageController::class, 'home'])->name('home');
+        Route::get('/about', [PageController::class, 'about'])->name('about');
+    }
+);
