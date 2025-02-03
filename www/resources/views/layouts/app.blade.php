@@ -3,6 +3,9 @@
 
 <head>
     <title>App Name - @yield('title')</title>
+    <script>
+        window.datasite = {{ Illuminate\Support\Js::from($datasite) }};
+    </script>
 </head>
 
 <body>
