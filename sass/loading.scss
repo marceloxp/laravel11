@@ -1,0 +1,54 @@
+@use "variable" as *;
+
+#loading-site {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0 !important;
+	z-index: 99992000;
+	background: $white;
+
+
+	.progress-bar {
+		width: 300px;
+		height: 200px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: url(../images/loading-container.png) left top no-repeat;
+		background-size: cover;
+		backface-visibility: hidden;
+
+		.progress {
+			width: 0;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(../images/loading-progress.png) left top no-repeat;
+			background-size: cover;
+			backface-visibility: hidden;
+			transition: .2s all;
+			z-index: 10;
+		}
+	}
+}
+
+@media only screen and (max-width: 770px) {
+	#loading-site {
+		.progress-bar {
+			top: 45%;
+			width: 150px;
+			height: 100px;
+			background-size: cover;
+
+			.progress {
+				width: 0;
+				height: 100px;
+				background-size: cover;
+			}
+		}
+	}
+}

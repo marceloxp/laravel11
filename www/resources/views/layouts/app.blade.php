@@ -12,7 +12,7 @@
         <meta name="framework-version" content="{{ App::VERSION() }}">
         <meta name="app-version" content="{{ app_version() }}">
         <x-favicon url="favicon.png" />
-        {{-- <x-css src="/css/style.min.css" /> --}}
+        <x-css src="/css/style.min.css" />
 
         <title>App Name - @yield('title')</title>
         @if (!empty($autoAssets['css']))
@@ -30,8 +30,8 @@
     </div>
 
     @yield('before_bottom_scripts')
-    <script src="{{ asset('lib/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ asset('lib/jsBaseClass.min.js') }}"></script>
+    <script src="{{ asset('js/vendor.min.js') }}"></script>
+    <script src="{{ asset('libs/jsBaseClass.min.js') }}"></script>
     @if (!empty($autoAssets['js']))
         <script src="{{ $autoAssets['js'] }}"></script>
     @endif

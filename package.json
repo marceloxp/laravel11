@@ -1,0 +1,95 @@
+{
+    "name": "job0000_job_id",
+    "version": "1.0.0",
+    "repository": "git@bitbucket.org:umstudio/job0000_job_id.git",
+    "author": "Umstudio <umstudio@gmail.com>",
+    "license": "MIT",
+    "br_com_umstudio": {
+        "hosts": {
+            "local": "http://127.0.0.1:8081",
+            "homolog": "https://job.umstudio.com.br",
+            "production": "https://www.job.com.br/"
+        },
+        "libs": [
+            "node_modules/jsbaseclass/dist/jsBaseClass.min.js",
+            "node_modules/gsap/dist/gsap.min.js",
+            "node_modules/gsap/dist/ScrollToPlugin.min.js",
+            "node_modules/gsap/dist/ScrollTrigger.min.js"
+        ],
+        "avaliable": [
+            "node_modules/jqueryumsbreakpoints/dist/jqueryUmsBreakPoints.min.js",
+            "node_modules/gsap/dist/CSSRulePlugin.min.js",
+            "node_modules/gsap/dist/CustomEase.min.js",
+            "node_modules/gsap/dist/Draggable.min.js",
+            "node_modules/gsap/dist/EaselPlugin.min.js",
+            "node_modules/gsap/dist/EasePack.min.js",
+            "node_modules/gsap/dist/Flip.min.js",
+            "node_modules/gsap/dist/MotionPathPlugin.min.js",
+            "node_modules/gsap/dist/Observer.min.js",
+            "node_modules/gsap/dist/PixiPlugin.min.js",
+            "node_modules/gsap/dist/ScrollToPlugin.min.js",
+            "node_modules/gsap/dist/ScrollTrigger.min.js",
+            "node_modules/gsap/dist/TextPlugin.min.js"
+        ],
+        "vendor": {
+            "use": [
+                "swiper"
+            ],
+            "swiper": [
+                "node_modules/swiper/swiper-bundle.min.js",
+                "node_modules/swiper/swiper-bundle.min.css"
+            ]
+        },
+        "browsersync": {
+            "files": [
+                "www/**/*.php",
+                "www/**/*.js",
+                "www/**/*.css"
+            ]
+        }
+    },
+    "browserslist": [
+        "> 0.2% and not dead"
+    ],
+    "dependencies": {
+        "cookie-consent-js": "^2.1.8",
+        "gsap": "^3.12.5",
+        "imagesloaded": "^5.0.0",
+        "jquery": "^3.7.1",
+        "jquery-validation": "^1.21.0",
+        "jsbaseclass": "^1.0.3",
+        "swiper": "^11.1.9"
+    },
+    "devDependencies": {
+        "browser-sync": "^3.0.2",
+        "dev-ip": "^1.0.1",
+        "execa": "^5.0.0",
+        "fkill": "^7.2.1",
+        "gulp": "^5.0.0",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-csso": "^4.0.1",
+        "gulp-debug": "^4.0.0",
+        "gulp-edit": "0.0.1",
+        "gulp-filter": "^7.0.0",
+        "gulp-if": "^3.0.0",
+        "gulp-modify-css-urls": "^2.0.0",
+        "gulp-sass": "^5.1.0",
+        "gulp-sass-variables": "^1.2.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-terser": "^2.1.0",
+        "jqueryumsbreakpoints": "^1.0.4",
+        "main-yarn-files": "^3.0.4",
+        "sass": "^1.77.8",
+        "strnow": "^1.0.2"
+    },
+    "scripts": {
+        "start": "node_modules/.bin/gulp watch",
+        "homolog": "node_modules/.bin/gulp homolog",
+        "dist": "node_modules/.bin/gulp production"
+    },
+    "engines": {
+        "npm": ">=10.7.0",
+        "node": ">=18.20.0"
+    }
+}
