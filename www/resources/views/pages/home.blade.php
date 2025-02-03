@@ -1,13 +1,22 @@
 @extends('layouts.app')
- 
+
 @section('title', 'Home Page')
- 
-@section('sidebar')
+
+@section('head')
     @parent
- 
-    <p>This is appended to the master sidebar.</p>
+    {{-- Custom Head --}}
 @endsection
- 
+
 @section('content')
     <p>This is my body content.</p>
+@endsection
+
+@section('before_bottom_scripts')
+    {{-- <script>
+        console.log('Before Bottom Scripts');
+    </script> --}}
+@endsection
+
+@section('after_bottom_scripts')
+    {{-- <script src="{{ vasset('js/custom.js') }}"></script> --}}
 @endsection
