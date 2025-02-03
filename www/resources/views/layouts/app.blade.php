@@ -9,12 +9,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,Chrome=1">
         <meta name="env" content="{{ env('APP_ENV', 'undefined') }}">
         <meta name="now" content="{{ date('Y-m-d H:i:s') }}">
-        <meta name="framework-version" content="{{ App::VERSION() }}">
+        <meta name="framework-version" content="{{ framework_version() }}">
         <meta name="app-version" content="{{ app_version() }}">
+
+        {{ app('metasocial')->print() }}
+
         <x-favicon url="favicon.png" />
         <x-css src="/css/style.min.css" />
 
-        <title>App Name - @yield('title')</title>
         @if (!empty($autoAssets['css']))
             <link rel="stylesheet" href="{{ $autoAssets['css'] }}">
         @endif

@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Home Page')
-
 @section('head')
     @parent
     {{-- Custom Head --}}
 @endsection
 
 @section('content')
-    <p>This is my body content.</p>
+    <h1>Home</h1>
+    <p>This is my home page.</p>
 @endsection
 
 @section('before_bottom_scripts')
