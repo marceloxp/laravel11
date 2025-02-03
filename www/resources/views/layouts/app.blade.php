@@ -27,6 +27,9 @@
 </head>
 
 <body>
+    <div class="menu">
+        @include('includes.menu')
+    </div>
     <div class="container">
         @yield('content')
     </div>

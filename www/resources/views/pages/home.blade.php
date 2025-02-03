@@ -6,8 +6,7 @@
 @endsection
 
 @section('content')
-    <h1>Home</h1>
-    <p>This is my home page.</p>
+    @include('partials.home')
 @endsection
 
 @section('before_bottom_scripts')
