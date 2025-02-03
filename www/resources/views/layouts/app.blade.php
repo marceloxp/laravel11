@@ -21,7 +21,8 @@
         @yield('content')
     </div>
 
-    {{-- Adiciona o JS, se existir --}}
+    <script src="{{ asset('lib/jsBaseClass.min.js') }}"></script>
+    <script src="{{ asset('lib/jquery-3.7.1.min.js') }}"></script>
     @if (!empty($autoAssets['js']))
         <script src="{{ $autoAssets['js'] }}"></script>
     @endif
