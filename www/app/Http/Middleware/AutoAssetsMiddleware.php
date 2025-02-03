@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
 
@@ -30,8 +29,8 @@ class AutoAssetsMiddleware
 
         // URLs dos arquivos
         $assets = [
-            'css' => File::exists($cssPath) ? asset("css/{$routeName}.css") : null,
-            'js' => File::exists($jsPath) ? asset("js/{$routeName}.js") : null,
+            'css' => File::exists($cssPath) ? vasset("css/{$routeName}.css") : null,
+            'js' => File::exists($jsPath) ? vasset("js/{$routeName}.js") : null,
         ];
 
         // Compartilha os assets com as views
