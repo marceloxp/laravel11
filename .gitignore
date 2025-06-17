@@ -90,3 +90,5 @@ www/public/css/vendor.min.css
 www/public/libs/cjsbaseclass.slim.min.js
 www/public/libs/jsBaseClass.min.js
 www/public/libs/jquery.SimpleMask.min.js
+
+.vscode/settings.json

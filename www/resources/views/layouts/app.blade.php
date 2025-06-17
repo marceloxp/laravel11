@@ -20,8 +20,15 @@
         @if (!empty($autoAssets['css']))
             <link rel="stylesheet" href="{{ $autoAssets['css'] }}">
         @endif
+
+        <!-- Datasite -->
+        <script id="datasite" type="application/json">
+            {!! json_encode($datasite, JSON_UNESCAPED_SLASHES) !!}
+        </script>
+
+        <!-- Load Datasite -->
         <script>
-            window.datasite = {{ Illuminate\Support\Js::from($datasite) }};
+            window.datasite = JSON.parse(document.getElementById("datasite").text);
         </script>
     @show
 </head>
@@ -29,6 +36,7 @@
 <body>
     <div class="menu">
         @include('includes.menu')
+        <img src="{{ vasset('images/fbshare.png') }}" width="320" alt="Laravel Logo">
     </div>
     <div class="container">
         @yield('content')

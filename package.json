@@ -6,7 +6,7 @@
     "license": "MIT",
     "br_com_umstudio": {
         "hosts": {
-            "local": "http://127.0.0.1:8081",
+            "local": "http://127.0.0.1:8000",
             "homolog": "https://job.umstudio.com.br",
             "production": "https://www.job.com.br/"
         },

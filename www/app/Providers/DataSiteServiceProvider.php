@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\File;
 
 class DataSiteServiceProvider extends ServiceProvider
 {
@@ -22,7 +23,9 @@ class DataSiteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('*', function ($view) {
-            $view->with('datasite', app('datasite')->all());
+            $datasite = app('datasite')->all();
+            $datasite['datasite'] = true;
+            $view->with('datasite', $datasite);
         });
     }
 }

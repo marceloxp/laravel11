@@ -1,0 +1,23 @@
+// .vscode/tasks.json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Export (Laravel)",
+            "type": "shell",
+            "command": "php artisan export:export",
+            "options": {
+                "cwd": "${workspaceFolder}/www"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
