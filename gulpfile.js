@@ -1,6 +1,7 @@
 const os = require('os');
 const gulp = require('gulp');
 const debug = require('gulp-debug');
+const fs = require('fs').promises;
 const csso = require('gulp-csso');
 const gulpif = require('gulp-if');
 const mainYarnFiles = require('main-yarn-files');
@@ -146,12 +147,42 @@ function _task_killport() {
     });
 }
 
+// Função para detectar o caminho do PHP baseado na versão do composer.json
+async function getPhpPath() {
+    if (os.platform() !== 'darwin') {
+        return 'php'; // Retorna comando padrão para não-MacOS
+    }
+
+    try {
+        // Lê o composer.json
+        const composerJson = await fs.readFile('www/composer.json', 'utf8');
+        const composerConfig = JSON.parse(composerJson);
+
+        // Verifica a versão requerida do PHP
+        const phpVersion = composerConfig.require.php;
+
+        // Se requer PHP 8.2 ou superior
+        if (phpVersion.includes('^8')) {
+            return '/opt/homebrew/bin/php';
+        }
+        // Se requer PHP 7.x
+        if (phpVersion.includes('^7')) {
+            return '/Applications/MAMP/bin/php/php7.4.21/bin/php';
+        }
+
+        // Default para PHP 8 se não conseguir determinar
+        return '/opt/homebrew/bin/php';
+    } catch (error) {
+        console.error('Erro ao ler composer.json:', error);
+        return '/opt/homebrew/bin/php'; // Fallback para PHP 8
+    }
+}
+
 function executeArtisanServe() {
     return new Promise(function (resolve, reject) {
         (async () => {
             const host = getPackageHostAndPort();
-            const isMacOS = os.platform() === 'darwin';
-            const phpPath = isMacOS ? '/Applications/MAMP/bin/php/php7.4.21/bin/php' : 'php';
+            const phpPath = await getPhpPath();
             const command = `${phpPath} www/artisan serve --host=${host.host} --port=${host.port}`;
 
             try {
