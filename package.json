@@ -57,7 +57,7 @@
         "imagesloaded": "^5.0.0",
         "jquery": "^3.7.1",
         "jquery-validation": "^1.21.0",
-        "jsbaseclass": "^1.0.3",
+        "jsbaseclass": "^1.0.7",
         "swiper": "^11.1.9"
     },
     "devDependencies": {
