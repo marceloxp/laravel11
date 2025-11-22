@@ -45,7 +45,7 @@ const config = {
     },
     'options': {
         'overrides': {
-            'cjsbaseclass': {
+            'jsbaseclass': {
                 'ignore': true
             },
             'swiper': {

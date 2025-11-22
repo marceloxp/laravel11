@@ -35,12 +35,6 @@ function _task_vendor(p_local) {
             .pipe(debug({ title: 'Debug _task_vendor:' }))
             .pipe(terser())
             .pipe(concat('vendor.min.js', { newLine: "\r\n" }))
-            .pipe(
-                edit(function (src, cb) {
-                    src = "/* Last modified: " + strnow.get() + " */\n\n" + src;
-                    cb(null, src);
-                })
-            )
             .pipe(gulp.dest(config.env(p_local, 'js')))
             .pipe(config.get('filter.js.restore'))
             // CSS
@@ -49,12 +43,6 @@ function _task_vendor(p_local) {
             .pipe(autoprefixer())
             .pipe(csso())
             .pipe(concat('vendor.min.css', { newLine: "\r\n" }))
-            .pipe(
-                edit(function (src, cb) {
-                    src = "/* Last modified: " + strnow.get() + " */\n\n" + src;
-                    cb(null, src);
-                })
-            )
             .pipe(gulp.dest(config.env(p_local, 'css')))
             .pipe(config.get('filter.css.restore'))
             .on('end', function () {
