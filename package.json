@@ -8,7 +8,7 @@
         "hosts": {
             "local": "http://127.0.0.1:8000",
             "homolog": "https://job.umstudio.com.br",
-            "production": "https://www.job.com.br/"
+            "production": "https://www.job.com.br"
         },
         "libs": [
             "node_modules/jsbaseclass/dist/jsBaseClass.min.js",
