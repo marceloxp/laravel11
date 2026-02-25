@@ -15,7 +15,7 @@
         {{ app('metasocial')->print() }}
 
         <x-favicon url="favicon.png" />
-        <x-css src="/css/style.min.css" />
+        @vite('resources/sass/app.scss')
 
         @if (!empty($autoAssets['css']))
             <link rel="stylesheet" href="{{ $autoAssets['css'] }}">
@@ -38,9 +38,11 @@
         @include('includes.menu')
         <img src="{{ vasset('images/fbshare.png') }}" width="320" alt="Laravel Logo">
     </div>
-    <div class="container">
+    <div id="app">
         @yield('content')
     </div>
+
+    @vite('resources/js/app.js')
 
     @yield('before_bottom_scripts')
     <script src="{{ vasset('js/vendor.min.js') }}"></script>

@@ -65,19 +65,11 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-public/adminer/adminer\.php
-public/adminer/login-otp\.php
-public/adminer/plugin\.php
-public/adminer/struct-comments\.php
-public/uploads/*
-_temp/
 storage/framework/cache/data/
 *.directory
 public/vendor/summernote
-config/tables\.php
 .env
 .phpunit.result.cache
-laravel8.code-workspace
 tools/php-cs-fixer/vendor
 .php-cs-fixer.cache
 www/public/css/style.min.css
@@ -92,3 +84,7 @@ www/public/libs/jsBaseClass.min.js
 www/public/libs/jquery.SimpleMask.min.js
 
 .vscode/settings.json
+
+.repomixignore
+repomix.config.json
+repomix-output.md
