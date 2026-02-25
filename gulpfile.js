@@ -33,6 +33,12 @@ function _task_vendor(p_local) {
             .pipe(debug({ title: 'Debug _task_vendor:' }))
             .pipe(terser())
             .pipe(concat('vendor.min.js', { newLine: "\r\n" }))
+            // .pipe(
+            //     edit(function (src, cb) {
+            //         src = "/* Last modified: " + strnow.get() + " */\n\n" + src;
+            //         cb(null, src);
+            //     })
+            // )
             .pipe(gulp.dest(config.env(p_local, 'js')))
             .pipe(config.get('filter.js.restore'))
             // CSS
@@ -41,6 +47,12 @@ function _task_vendor(p_local) {
             .pipe(autoprefixer())
             .pipe(csso())
             .pipe(concat('vendor.min.css', { newLine: "\r\n" }))
+            // .pipe(
+            //     edit(function (src, cb) {
+            //         src = "/* Last modified: " + strnow.get() + " */\n\n" + src;
+            //         cb(null, src);
+            //     })
+            // )
             .pipe(gulp.dest(config.env(p_local, 'css')))
             .pipe(config.get('filter.css.restore'))
             .on('end', function () {
@@ -62,33 +74,17 @@ function _task_lib(p_local) {
 }
 
 function _task_sass(p_local) {
-    const minify = p_local === 'production';
-
+    const minify = p_local == 'production' ? true : false;
     return gulp
         .src(config.env(p_local, 'sass') + '_init.scss')
         .pipe(sourcemaps.init())
-
-        // 1) Compila SCSS → CSS
-        .pipe(
-            sass({ silenceDeprecations: ['legacy-js-api'] })
-                .on('error', sass.logError)
-        )
-
-        // 2) Aplica autoprefixer no CSS resultante
         .pipe(autoprefixer())
-
-        // 3) Concatena o CSS final em 1 arquivo
         .pipe(concat('style.min.css'))
-
-        // 4) Minifica somente em produção
+        .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+        // .pipe(urlAdjuster({ replace: ['../', config.env(p_local, 'base') + '/'] }))
         .pipe(gulpif(minify, csso()))
-
-        // 5) Grava os sourcemaps
         .pipe(sourcemaps.write('./'))
-
-        // 6) Salva no destino
         .pipe(gulp.dest(config.env(p_local, 'css')))
-
         .on('end', function () {
             console.log('-- GULP TASK SASS --');
         });
