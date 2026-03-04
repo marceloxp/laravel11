@@ -81,6 +81,12 @@ class MetaSocial
             $configs['twitter_creator'] = '';
         }
 
+        if (array_key_exists('image', $configs)) {
+            if ((strpos($configs['image'], 'http') === false) && (strpos($configs['image'], 'https') === false)) {
+                $configs['image'] = vasset($configs['image']);
+            }
+        }
+
         if (array_key_exists('facebook_id', $configs)) {
             if (!empty($configs['facebook_id'])) {
                 $result .= PHP_EOL;
@@ -103,8 +109,8 @@ class MetaSocial
                         }
                     }
                     break;
-                }
-                
+            }
+
             $value_type = gettype($value);
             if ($value_type === 'string') {
                 $result = str_replace('{:' . $key . '}', $value, $result);
