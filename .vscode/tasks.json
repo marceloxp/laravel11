@@ -25,26 +25,6 @@
                 "clear": true
             },
             "problemMatcher": []
-        },
-        {
-            "label": "Gulp",
-            "type": "shell",
-            "command": "nvm use && ${workspaceRoot}/node_modules/gulp/bin/gulp.js",
-            "isBackground": true,
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated",
-                "focus": false,
-                "clear": true
-            },
-            "problemMatcher": []
         }
     ]
 }

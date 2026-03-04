@@ -45,7 +45,6 @@
     @vite('resources/js/app.js')
 
     @yield('before_bottom_scripts')
-    <script src="{{ vasset('js/vendor.min.js') }}"></script>
     <script src="{{ asset('libs/jsBaseClass.min.js') }}"></script>
     @if (!empty($autoAssets['js']))
         <script src="{{ $autoAssets['js'] }}"></script>
